@@ -1,5 +1,19 @@
 FROM node:22.2.0
+
+# Set working directory
 WORKDIR /app
+
+# Copy all files into the container
 COPY . .
-RUN npm install -g pnpm@10.2.0 && pnpm install --frozen-lockfile && pnpm run build
+
+# Install pnpm at the version you need
+RUN npm install -g pnpm@10.2.0
+
+# Install dependencies and build
+RUN pnpm install --frozen-lockfile && pnpm run build
+
+# Expose the port n8n will run on
+EXPOSE 3000
+
+# Start n8n
 CMD ["pnpm", "start"]
