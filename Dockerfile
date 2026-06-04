@@ -6,7 +6,7 @@ WORKDIR /app
 # Copy all files into the container
 COPY . .
 
-# Install pnpm at the version you need
+# Install pnpm at the required version
 RUN npm install -g pnpm@10.2.0
 
 # Install dependencies and build
